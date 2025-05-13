@@ -8,11 +8,12 @@
   ],
   "scripts": {
     "prepublishOnly": "bun run build",
-    "build": "bun build ./src/index.ts --outdir dist --target node --format esm --minify-whitespace"
+    "build": "tsdown ./src/index.ts --out-dir dist --format esm --dts"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "typescript": "^5",
-    "ignore": "^7.0.4"
+    "ignore": "^7.0.4",
+    "tsdown": "^0.11.7",
+    "typescript": "^5"
   }
 }
