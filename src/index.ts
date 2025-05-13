@@ -24,7 +24,7 @@ async function collectFilesRecursively(
     // fs.access can check existence, readFile will fail if it's not a file or not readable.
     const gitignoreContent = await fs.readFile(gitignorePath, "utf-8")
     const rawPatterns = gitignoreContent
-      .split(/\\r?\\n/)
+      .split(/\r?\n/)
       .map((line) => line.trim())
       .filter((line) => line && !line.startsWith("#"))
 
@@ -35,6 +35,7 @@ async function collectFilesRecursively(
         .join(path.posix.sep)
 
       const adjustedPatternsThisLevel: string[] = []
+
       for (const rawPattern of rawPatterns) {
         let p = rawPattern // Already trimmed
         const isNegated = p.startsWith("!")
