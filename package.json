@@ -1,0 +1,18 @@
+{
+  "name": "walk-ignore",
+  "type": "module",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "bun run build",
+    "build": "bun build ./src/index.ts --outdir dist --target node --format esm --minify-whitespace"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5",
+    "ignore": "^7.0.4"
+  }
+}
